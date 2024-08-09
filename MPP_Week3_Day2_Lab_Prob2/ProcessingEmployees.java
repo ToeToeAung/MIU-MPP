@@ -147,7 +147,7 @@ public class ProcessingEmployees
         //    System.out.printf("The first names of all the employees %s",
             list.stream()
             .map(Employee::getFirstName)
-            .forEach(System.out::println);
+            .forEach(System.out::println);	
             
         //#a.9
      		System.out.println("[a 9]----------------------------------------------------------");
