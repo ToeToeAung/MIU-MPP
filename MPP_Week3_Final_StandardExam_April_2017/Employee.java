@@ -36,6 +36,7 @@ public class Employee {
     }
     @Override
     public boolean equals(Object ob) {
+    	if(this == ob) return true;
         if(ob == null) return false;
         if(!(ob instanceof Employee)) return false;
         Employee e = (Employee)ob;

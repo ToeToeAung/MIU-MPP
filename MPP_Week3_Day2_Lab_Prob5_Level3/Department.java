@@ -1,4 +1,4 @@
-package MPP_Week1_Day1_Level1;
+package MPP_Week3_Day2_Lab_Prob5_Level3;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -29,7 +29,12 @@ public class Department {
 		return totalSalary;
 	}
 	
-		
+	public double getTotalSalaryWithStreams() {
+		return members.stream()
+		.mapToDouble(Person::getSalary)
+		.sum();
+	}
+	
 	 public double getTotalSalaryWithPolymorphism() {
 	        double totalSalary = 0.0;
 	        for (Person p : members) {
@@ -47,8 +52,24 @@ public class Department {
 	        }
 	 }
 	 
-	
-	
+	 public void showAllMembersWithStreams() {
+		 members.forEach(member -> System.out.println("Name:" + member.getName() +", Phone: "+ member.getPhone() + ", Age: "+ member.getAge()));
+	 }
+	 	
+	 public void unitsPerFacultyWithStreams(List<Course> courses) {
+		 members.stream()
+		    .filter(member -> member instanceof Faculty)
+		    .map(member -> (Faculty) member)
+		    .forEach(faculty -> {
+		        int totalUnits = courses.stream()
+		                .filter(course -> course.getFaculty().equals(faculty.getName()))
+		                .mapToInt(Course::getUnits)
+		                .sum();
+		        System.out.println(faculty.getName() + " teaches " + totalUnits + " units.");
+		    });
+
+	 }
+	 
 	    public void unitsPerFacultyWithInstanceOf(List<Course> courses) {
 	        for (Person p : members) {
 	            if (p instanceof Faculty) {

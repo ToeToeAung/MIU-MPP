@@ -71,6 +71,32 @@ public class ProcessingEmployees
   				  + "\t" + emp.getSalary() + "\t" + emp.getDepartment())
   		  .forEach(System.out :: println);
       		
+      		/* To practice again and again
+      		 // 3. Print out all of the Employee objects whose last name begins with the letter ‘B’ and change their first and last names to be All capital letters.
+            // First way: Without changing the original list
+            List<Employee> upperCaseBLastNames = employees.stream()
+                    .filter(e -> e.getLastName().startsWith("B"))
+                    .map(e -> new Employee(e.getFirstName().toUpperCase(), e.getLastName().toUpperCase()))
+                    .collect(Collectors.toList());
+
+            System.out.println("Employees with last names starting with 'B' (first and last names in uppercase) - Without changing original list:");
+            upperCaseBLastNames.forEach(System.out::println);
+
+            // Second way: Changing the original list
+            employees.stream()
+                    .filter(e -> e.getLastName().startsWith("B"))
+                    .forEach(e -> {
+                        e.setFirstName(e.getFirstName().toUpperCase());
+                        e.setLastName(e.getLastName().toUpperCase());
+                    });
+
+            System.out.println("Employees with last names starting with 'B' (first and last names in uppercase) - Changing original list:");
+            employees.stream()
+                    .filter(e -> e.getLastName().startsWith("B"))
+                    .forEach(System.out::println);
+            
+            
+      		*/
       		System.out.println("[a.4]----------------------------------------------------------");
       		  
        //# a.4 Print out All of the employee objects, 

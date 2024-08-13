@@ -26,17 +26,18 @@ public class Problem1 {
                 .toList();
     }
 
-    //test methods
+    //testing methods
     public static void main(String[] args) {
-        testFirstMethod();
-        testSecondMethod();
+    	testelementsInJustOnetMethod();
+    	testgetAllFairfieldCustomersMethod();
     }
-    private static void testFirstMethod() {
+    private static void testelementsInJustOnetMethod() {
         List<String> list1 = Arrays.asList(new String[]{"friend", "tree", "bike", "bat"});
         List<String> list2 = Arrays.asList(new String[]{"tree", "strong", "bike", "weak"});
         System.out.println("Strings occurring in just one of the two lists: " + elementsInJustOne(list1, list2));
     }
-    private static void testSecondMethod() {
+    
+    private static void testgetAllFairfieldCustomersMethod() {
         Customer cust1 = new Customer("Bob", "11 Adams", "Fairfield", "52556");
         Customer cust2 = new Customer("Laurence Lebihans",	"12, rue des Bouchers",	"Marseille","13008");
         Customer cust3 = new Customer("Andy", "1000 Channing Ave", "Palo Alto", "94301");
