@@ -25,8 +25,7 @@ public class Position {
     	return this.employee;
     }
     
-   
-    
+      
     
     public void print() {
     	 System.out.print("Position: " + title + " Description: "+ description);
