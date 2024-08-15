@@ -2,6 +2,7 @@ package MPP_Week4_Final_Exam_Problem3_G;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 public class Main {
 
 	 public static void main(String[] args) {
@@ -39,7 +40,11 @@ public class Main {
 	        // Step 5: Use one System.out.println to print all products
 	        System.out.println(finalList.stream()
 	            .map(Product::toString)
-	            .collect(Collectors.joining("\n")));
+	            .collect(Collectors.joining(","))); 
+	        
+	        
+	      
+
 	    }
 
 }

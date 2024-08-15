@@ -14,7 +14,7 @@ public class BankAccount implements Cloneable {
 		this.c1=c1;
 	}
 	
-	@SuppressWarnings("null")
+	@Override
 	public boolean equals(Object obj) {
 		//if(this == obj) return true;
 		if(obj == null) return false;
@@ -23,16 +23,17 @@ public class BankAccount implements Cloneable {
 		return accountNumber.equals(b.accountNumber) && balance == b.balance && c1.equals(b.c1);
 	}
 	
+	@Override
 	public String toString() {
 		return "Bank Account Number : " + accountNumber + " Balance :" + balance +" Customer: " +c1;
 	}
-	
+	@Override
 	public int hashCode() {
 		//return Objects.hash(accountNumber);
 		return Objects.hash(accountNumber,balance,c1);
 		//return accountNumber.hashCode();
 	}
-	
+	@Override
 	public BankAccount clone() throws CloneNotSupportedException {
 		BankAccount bankCopy=(BankAccount) super.clone();
 		bankCopy.c1 = (Customer) c1.clone();

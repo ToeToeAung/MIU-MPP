@@ -36,10 +36,6 @@ public class ProcessingEmployees
       // Convert elements to strings and concatenate them, separated by commas
       String joined = list.stream()
               .map(Object::toString)  //  this DOES go to the overridden method  toString  inside Employee!!  Yes!!
-
-                                     //  joining method needs Strings coming in.  
-
-              //.map(Employee::toString)  //  this also DOES work!!  Yes!!
               .collect(Collectors.joining(", "));
 
       System.out.println("\n\n" + joined);
@@ -66,7 +62,7 @@ public class ProcessingEmployees
       		  
       		list.stream()
   		  .filter(emp -> emp.getLastName().startsWith("B"))
-  		  .sorted(Comparator.comparing(Employee :: getLastName))
+  		 // .sorted(Comparator.comparing(Employee :: getLastName))
   		  .map(emp -> emp.getFirstName().toUpperCase() + "\t" + emp.getLastName().toUpperCase()
   				  + "\t" + emp.getSalary() + "\t" + emp.getDepartment())
   		  .forEach(System.out :: println);
@@ -105,7 +101,7 @@ public class ProcessingEmployees
       		
       		list.stream()
     		  .filter(emp -> emp.getLastName().startsWith("B"))
-    		  .sorted(Comparator.comparing(Employee :: getLastName))
+    		 // .sorted(Comparator.comparing(Employee :: getLastName))
     		  .map(emp -> emp.getFirstName() + "\t" + emp.getLastName().toUpperCase()
     				  + "\t" + emp.getSalary() + "\t" + emp.getDepartment())
     		  .forEach(System.out :: println);
@@ -155,15 +151,18 @@ public class ProcessingEmployees
        //# a.6 
       	  	System.out.println("[a 6]----------------------------------------------------------");
        	   
-      		Double avgSalary=list.stream()
+      		/*Double avgSalary=list.stream()
       				.collect(Collectors.summarizingDouble(Employee::getSalary))
-      				.getAverage();      		
+      				.getAverage();  */    
+      	  	Double avgSalary=list.stream()
+      	  			.mapToDouble(Employee:: getSalary)
+      	  			.average()
+      	  			.orElse(0.0);
       		System.out.println("The average of all the salaries is "+ avgSalary);
       		
       	//#a.7	
       	  	System.out.println("[a 7]----------------------------------------------------------");
-            
-      	  	System.out.printf("The total salary of all employees $%.2f%n",
+            System.out.printf("The total salary of all employees $%.2f%n",
       		list.stream()
       		.mapToDouble(Employee :: getSalary)
       		.reduce(0,(val1,val2) -> val1+val2));
